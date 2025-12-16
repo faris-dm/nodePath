@@ -1,0 +1,9 @@
+ DaY:1
+  in this exerises we learn the power of Node in accessing  the filesystem  means  it allow us to read files ,edit create and delite file simplily
+   but mostly used  fiir building serverside application and Async oprations and  the program can continue reading while other  tasks are being performed
+
+
+   Exerise 2
+     reading the file in the  folder, but  what make it greate is that we used one 
+     A: handled error
+     B;data.substring(0,200)=> to specify  how man charcter  we need
