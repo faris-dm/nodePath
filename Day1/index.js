@@ -31,14 +31,14 @@
 
 //appendFile
 
-import { error } from "console";
-import fs from "fs";
+// import { error } from "console";
+// import fs from "fs";
 
-fs.readFile("fs.txt", "utf-8", (error, resolve) => {
-  if (error) throw error;
+// fs.readFile("fs.txt", "utf-8", (error, resolve) => {
+//   if (error) throw error;
 
-  console.log(" the document", resolve);
-});
+//   console.log(" the document", resolve);
+// });
 
 // fs.appendFile("fs.txt", "utf-8", (error) => {
 //   if (error) {
@@ -48,12 +48,23 @@ fs.readFile("fs.txt", "utf-8", (error, resolve) => {
 // Node.js program to demonstrate the
 // fs.appendFile() method
 
-// // Import the filesystem module
-// import { error } from "console";
-// import fs from "fs";
-// import { resolve } from "path";
+// Import the filesystem module
 
-// fs.readFile("fs.tzt", "utf-8", (error, resolve) => {
-//   if (error) throw error;
-//   console.log(" the fs text elemnts are", resolve);
-// });
+import { error } from "console";
+import fs from "fs";
+import { resolve } from "path";
+
+console.log(
+  " the content of the file befor",
+  fs.readFileSync("fs.txt", "utf-8")
+);
+
+console.log(" the content  of the file after chamge");
+
+fs.appendFile("fs.txt", " this is new appens", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
+  }
+});
