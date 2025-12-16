@@ -54,17 +54,32 @@ import { error } from "console";
 import fs from "fs";
 import { resolve } from "path";
 
-console.log(
-  " the content of the file befor",
-  fs.readFileSync("fs.txt", "utf-8")
-);
+// console.log(
+//   " the content of the file befor",
+//   fs.readFileSync("fs.txt", "utf-8")
+// );
 
-console.log(" the content  of the file after chamge");
+// console.log(" the content  of the file after chamge");
 
-fs.appendFile("fs.txt", " this is new appens", (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
-  }
-});
+// fs.appendFile("fs.txt", " this is new appens", (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
+//   }
+// // });
+
+//################## another function
+
+// console.log("read file frist:", fs.readFileSync("fs.txt", "utf-8"));
+
+// fs.appendFile(
+//   "fs.txt",
+//   " and i will prove  to my self i deserive a better life",
+//   (error) => {
+//     if (error) throw error;
+//     console.log(" the new  file is:-", fs.readFileSync("fs.txt", "utf-8"));
+//   }
+// );
+
+//################## another function

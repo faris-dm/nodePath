@@ -7,3 +7,32 @@
      reading the file in the  folder, but  what make it greate is that we used one 
      A: handled error
      B;data.substring(0,200)=> to specify  how man charcter  we need
+
+
+     ==> we saw many things 
+     1: about readFile,fs.readFileSync,appendFile,
+     og(
+  " the content of the file befor",
+  fs.readFileSync("fs.txt", "utf-8")
+);
+
+console.log(" the content  of the file after chamge");
+
+fs.appendFile("fs.txt", " this is new appens", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
+  }
+});
+
+
+# 3: we  also saw how  to use const function is fs system and like fun
+  cont file='fs.txt'
+  const fun=(error,data)=> {
+    if(error) throw error 
+    console.log('"file",data.toString())
+
+  }
+  fs.readFile(file,fun)
+   this func aceept a  file and read it 
