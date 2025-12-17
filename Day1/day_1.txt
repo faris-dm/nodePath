@@ -25,6 +25,7 @@ fs.appendFile("fs.txt", " this is new appens", (err) => {
     console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
   }
 });
+::-  this  file show  how towrite and read  file in the console  as one opration
 
 
 # 3: we  also saw how  to use const function is fs system and like fun
@@ -36,3 +37,12 @@ fs.appendFile("fs.txt", " this is new appens", (err) => {
   }
   fs.readFile(file,fun)
    this func aceept a  file and read it 
+
+
+
+
+   =======>>>>>>>>>
+
+     the date is used  to get where the time  when the  request is send
+ ### set header  thell the  brower what  type of  data to expect 
+ res.setHeader('Content-Type', 'application/json');=> help the brower to know

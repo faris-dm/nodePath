@@ -53,6 +53,70 @@
 import { error } from "console";
 import fs from "fs";
 import { resolve } from "path";
+import http from "http";
+import { json } from "express";
+import { LogOut } from "lucide-react";
+// const http = require('http');
+
+const Router = http.createServer((req, res) => {
+  const Now = new Date();
+  console.log(` ${Now} -- ${req.method} --${req.url}`);
+
+  res.setHeader("Content-Type", "application/json");
+
+  if (req.url == "/") {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ message: "Wellcome  to Landing page, solo" }));
+  } else if (req.url == "/Home") {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ Message: "wellcome to your Home solo" }));
+  } else if (req.url == "/contact") {
+    res.statusCode = 200;
+    res.end(
+      JSON.stringify({
+        Contact: "Contacts are Now contacting  so Pleases wait",
+      })
+    );
+  } else if (req.url == LogOut) {
+    res.statusCode == 200;
+    res.end(JSON.stringify({ No: "There is NO going Out" }));
+  } else {
+    req.statusCode = 404;
+    res.end(JSON.stringify({ Message: "Page Not Fond" }));
+  }
+});
+// Create a server
+// const server = http.createServer((req, res) => {
+//   // Log request with timestamp
+//   const timestamp = new Date();
+//   console.log(`${timestamp} - ${req.method} ${req.url}`);
+
+//   // Set response header
+//   res.setHeader("Content-Type", "application/json");
+
+//   // Route handling
+//   if (req.url === "/") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ message: "Welcome to the home page!" }));
+//   } else if (req.url === "/api") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ data: { users: [1, 2, 3] } }));
+//   } else if (req.url === "/about") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ message: "About page" }));
+//   } else {
+//     // 404
+//     res.statusCode = 404;
+//     res.end(JSON.stringify({ error: "Not found" }));
+//   }
+// });
+
+// Read port from environment variable or use default
+const PORT = process.env.PORT || 3000;
+
+Router.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // console.log(
 //   " the content of the file befor",
