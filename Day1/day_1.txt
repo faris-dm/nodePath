@@ -46,3 +46,97 @@ fs.appendFile("fs.txt", " this is new appens", (err) => {
      the date is used  to get where the time  when the  request is send
  ### set header  thell the  brower what  type of  data to expect 
  res.setHeader('Content-Type', 'application/json');=> help the brower to know
+
+
+res.statusCode=200 means  everything work
+
+res.end(JSON.stringify({ message: '...' }));  this used  f to  change the message  which is js object to js json
+
+
+
+======>>>>>
+
+ {message:"solo"}
+  when communicating  with the web web it is standarized way
+  JSON.stringify()
+     the res.sed(). it transmit string only it can not send  complex objec so
+
+     our complex object is =JSON.stringify()
+
+      and our json srting 
+      "{\"message\":\"About page\"}"
+
+      after that the broweser use the setHeader you provided and change it  to  complex objec json=string format
+
+
+
+
+      =====>a  Fast Api 
+      
+import { error } from "console";
+import fs, { read } from "fs";
+import { resolve } from "path";
+import http from "http";
+import { application, json } from "express";
+import { LogOut } from "lucide-react";
+// const http = require('http');
+
+// Create a server
+// const server = http.createServer((req, res) => {
+//   // Log request with timestamp
+//   const timestamp = new Date();
+//   console.log(`${timestamp} - ${req.method} ${req.url}`);
+
+//   // Set response header
+//   res.setHeader("Content-Type", "application/json");
+
+//   // Route handling
+//   if (req.url === "/") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ message: "Welcome to the home page!" }));
+//   } else if (req.url === "/api") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ data: { users: [1, 2, 3] } }));
+//   } else if (req.url === "/about") {
+//     res.statusCode = 200;
+//     res.end(JSON.stringify({ message: "About page" }));
+//   } else {
+//     // 404
+//     res.statusCode = 404;
+//     res.end(JSON.stringify({ error: "Not found" }));
+//   }
+// });
+
+// Read port from environment variable or use default
+const PORT = process.env.PORT || 3000;
+
+Router.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// console.log(
+//   " the content of the file befor",
+//   fs.readFileSync("fs.txt", "utf-8")
+// );
+
+// console.log(" the content  of the file after chamge");
+
+// fs.appendFile("fs.txt", " this is new appens", (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("file cahnged to", fs.readFileSync("fs.txt", "utf-8"));
+//   }
+// // });
+
+
+##################
+  the module==>> prove multiple opration   for  intarcting  with the file system
+  module have  two parts async and sync
+
+let read file,rename,write apppend using sync
+
+fs.readFileSync+> Means block other Tasks and excute this untileit finishes
+ the reasion we did not used  thr readFile is  it is Async and it need Eror and Promises
+
+

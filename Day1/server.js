@@ -26,11 +26,11 @@ import fs, { readFile, readFileSync } from "fs";
 //   console.log("Function successfully executed:", data.toString());
 // };
 
-// fs.readFile(file, ErrorFirstCallback);
-const Readable = "fs.txt";
-const ReadNowFun = (error, resolve) => {
-  if (error) throw error;
-  console.log(" the given document contains:-", resolve.toString());
-};
+// fs.readFile(file, ErrorFirstCallback);import { unlink } from 'node:fs/promises';
 
-fs.readFile(Readable, ReadNowFun);
+const file = "fs.txt";
+
+fs.appendFileSync(file, "\n You are Gc Pleases Work Hard");
+
+const out = fs.readFileSync(file, "utf-8");
+console.log(" this is a file", out.toString());
