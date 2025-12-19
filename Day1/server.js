@@ -1,7 +1,5 @@
-import { error } from "console";
 import { fileLoader } from "ejs";
 import { json } from "express";
-import fs, { readFile, readFileSync } from "fs";
 
 // console.log(" the privious file:-", fs.readFileSync("fs.txt", "utf-8"));
 
@@ -33,42 +31,67 @@ import fs, { readFile, readFileSync } from "fs";
 // fs.appendFileSync(file, "\n You are Gc Pleases Work Hard");
 
 // const out = fs.readFileSync(file, "utf-8");
-// console.log(" this is a file", out.toString());
-const file = "fs.txt";
-
+// console.log(" this is a file", out.toString())
+import fs, { readFile, readFileSync } from "fs";
+import fs from "fs";
 import http from "http";
-const Router = http.createServer((req, res) => {
+
+const logFile = "requests.log";
+
+const server = http.createServer((req, res) => {
+  const timestamp = new Date().toISOString();
+  const { method, url } = req;
+
+  // Log the request (without the extra route-specific messages)
+  const logMessage = `${timestamp} - ${method} ${url}\n`;
+
+  // Asynchronously append to the log file
+  fs.appendFile(logFile, logMessage, (err) => {
+    if (err) {
+      console.error("Failed to write to log file:", err);
+    }
+  });
+
   res.setHeader("Content-Type", "application/json");
-  // const HttpDate = new Date();
-  // console.log(`${HttpDate}  ${req.method} ${req.url}`);
-  if (req.url == "/") {
-    res.statusCode = 200;
-    res.end(JSON.stringify({ Message: "Landing Page" }));
-    fs.appendFileSync(file, "\n go to Landing page");
-  } else if (req.url === "/about") {
-    res.statusCode = 200;
-    const messages = new Date();
-    fs.appendFileSync(file, `\n ${messages}  open about`);
-    res.end(JSON.stringify({ router: "ABOUT ME PAGE " }));
-  } else if (req.url == "/product") {
-    res.statusCode = 200;
-    res.end(JSON.stringify({ Message: "Landing Page" }));
-    fs.appendFileSync(file, "\n go to Product page");
-  } else if (req.url === "/close") {
-    res.statusCode = 200;
-    fs.appendFileSync(file, "\n  server Closed");
-    res.end(JSON.stringify({ router: "Closed " }));
-    Router.close(() => {
-      console.log(`you have closed the router`);
+
+  let responseMessage;
+  let statusCode;
+
+  if (url === "/") {
+    statusCode = 200;
+    responseMessage = { message: "Landing Page" };
+  } else if (url === "/about") {
+    statusCode = 200;
+    responseMessage = { message: "ABOUT ME PAGE" };
+  } else if (url === "/product") {
+    statusCode = 200;
+    responseMessage = { message: "product Page" };
+  } else if (url === "/close") {
+    statusCode = 200;
+    responseMessage = { message: "Server is closing" };
+
+    // Send response and then close the server
+    res.statusCode = statusCode;
+    res.end(JSON.stringify(responseMessage));
+
+    // Close the server
+    server.close(() => {
+      console.log("Server closed");
     });
+
+    // We return early because we already sent the response and are closing the server.
+    return;
   } else {
-    res.statusCode = 404;
-    res.end(JSON.stringify({ Message: "solo Naser 404" }));
+    statusCode = 404;
+    responseMessage = { message: "Page not found" };
   }
+
+  res.statusCode = statusCode;
+  res.end(JSON.stringify(responseMessage));
 });
 
-const port = 4000;
+const PORT = 4000;
 
-Router.listen(port, () => {
-  console.log(`https://localhost:${port}`);
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

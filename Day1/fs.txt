@@ -1,5 +1,11 @@
  creazy things are  going  to happen in my life and i will change  them to wins and i will prove  to my self i deserive a better life
+Wed Dec 17 2025 18:41:19 GMT-0800 (Pacific Standard Time) GET /
  go to Landing page
- Wed Dec 17 2025 18:01:23 GMT-0800 (Pacific Standard Time)  open about
+Wed Dec 17 2025 18:41:44 GMT-0800 (Pacific Standard Time) GET /
+ go to Landing page
+Wed Dec 17 2025 18:41:52 GMT-0800 (Pacific Standard Time) GET /product
  go to Product page
- Wed Dec 17 2025 18:02:53 GMT-0800 (Pacific Standard Time)  open about
+Wed Dec 17 2025 18:42:05 GMT-0800 (Pacific Standard Time) GET /about
+Wed Dec 17 2025 18:42:36 GMT-0800 (Pacific Standard Time) GET /about
+Wed Dec 17 2025 18:42:44 GMT-0800 (Pacific Standard Time) GET /product
+ go to Product page
