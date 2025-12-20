@@ -33,7 +33,7 @@ import { json } from "express";
 // const out = fs.readFileSync(file, "utf-8");
 // console.log(" this is a file", out.toString())
 import fs, { readFile, readFileSync } from "fs";
-import fs from "fs";
+
 import http from "http";
 
 const logFile = "requests.log";
@@ -70,7 +70,7 @@ const server = http.createServer((req, res) => {
     statusCode = 200;
     responseMessage = { message: "Server is closing" };
 
-    // Send response and then close the server
+    // Send response add . then close the server
     res.statusCode = statusCode;
     res.end(JSON.stringify(responseMessage));
 
