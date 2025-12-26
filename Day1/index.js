@@ -56,11 +56,10 @@ import { resolve } from "path";
 import http from "http";
 import { application, json } from "express";
 import { LogOut } from "lucide-react";
-// const http = require('http');
 
 const Router = http.createServer((req, res) => {
   const ShowDate = new Date();
-  console.log(` ${ShowDate} ${req.method} ${req.url}`);
+  console.log(`${ShowDate} ${req.method} ${req.url}`);
 
   res.setHeader("Content-Type", "application/json");
 

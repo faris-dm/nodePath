@@ -139,4 +139,5 @@ let read file,rename,write apppend using sync
 fs.readFileSync+> Means block other Tasks and excute this untileit finishes
  the reasion we did not used  thr readFile is  it is Async and it need Eror and Promises
 
-
+===>
+ i have finshed the task using appendchild and  but i inputed the date in one message const
